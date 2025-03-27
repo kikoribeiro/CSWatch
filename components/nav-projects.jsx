@@ -29,7 +29,7 @@ export function NavProjects({
                 ) : item.icon ? (
                   <item.icon />
                 ) : null}
-                <span>{item.name || "Untitled Project"}</span>
+                <span>{item.name || "Untitled menu"}</span>
               </a>
             </SidebarMenuButton>
           </SidebarMenuItem>
