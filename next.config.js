@@ -7,6 +7,6 @@ const nextConfig = {
       // Add any other domains you need to load images from
     ],
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

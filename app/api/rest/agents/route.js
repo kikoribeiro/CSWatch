@@ -10,54 +10,57 @@ export async function GET(request) {
     const name = searchParams.get('name');
     const rarity = searchParams.get('rarity');
     const team = searchParams.get('team');
-    
+
     // Read the agents data from the JSON file
     const filePath = path.join(process.cwd(), 'hooks', 'agents.json');
     if (!fs.existsSync(filePath)) {
       console.error(`File not found at path: ${filePath}`);
       return NextResponse.json(
-        { error: "Agents data file not found", path: filePath },
+        { error: 'Agents data file not found', path: filePath },
         { status: 404 }
       );
     }
+
     const fileContents = await fs.promises.readFile(filePath, 'utf8');
     let agents = JSON.parse(fileContents);
-    
+
     // Apply filters if they exist
     if (name) {
-      agents = agents.filter(agent => 
-        agent.name.toLowerCase().includes(name.toLowerCase())
-      );
+      agents = agents.filter((agent) => agent.name.toLowerCase().includes(name.toLowerCase()));
     }
-    
+
     if (rarity) {
-      agents = agents.filter(agent => 
-        agent.rarity && agent.rarity.name && 
-        agent.rarity.name.toLowerCase() === rarity.toLowerCase()
+      agents = agents.filter(
+        (agent) =>
+          agent.rarity &&
+          agent.rarity.name &&
+          agent.rarity.name.toLowerCase() === rarity.toLowerCase()
       );
     }
-    
+
     if (team) {
-      agents = agents.filter(agent => 
-        agent.team && agent.team.name && 
-        agent.team.name.toLowerCase().includes(team.toLowerCase())
+      agents = agents.filter(
+        (agent) =>
+          agent.team &&
+          agent.team.name &&
+          agent.team.name.toLowerCase().includes(team.toLowerCase())
       );
     }
-    
+
     // Apply limit if specified
     if (limit && limit > 0) {
       agents = agents.slice(0, limit);
     }
-    
+
     // Return the filtered agents
     return NextResponse.json({
       count: agents.length,
-      data: agents
+      data: agents,
     });
   } catch (error) {
-    console.error("Error fetching agents:", error);
+    console.error('Error fetching agents:', error);
     return NextResponse.json(
-      { error: "Failed to fetch agents", details: error.message },
+      { error: 'Failed to fetch agents', details: error.message },
       { status: 500 }
     );
   }
