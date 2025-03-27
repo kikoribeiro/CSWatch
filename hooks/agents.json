@@ -1,0 +1,232 @@
+[
+    {
+      "id": "agent-4613",
+      "name": "Bloody Darryl The Strapped | The Professionals",
+      "description": "Antes de se ter tornado no líder do gangue criminoso chamado \\\"Os Profissionais\\\", Sir Bloody Darryl era conhecido como apenas Bloody Darryl. Já naqueles tempos ele era o nosso bom velho psicopata em todos os sentidos do termo. Só não era australiano, segundo o que australianos dizem. \\n\\n<i>Vou só ali que já são horas da ramboia.</i>",
+      "rarity": {
+        "id": "rarity_legendary_character",
+        "name": "Superior",
+        "color": "#d32ce6"
+      },
+      "collections": [
+        {
+          "id": "collection-set-op11-characters",
+          "name": "Agentes da Operação Riptide",
+          "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/set_icons/set_op11_characters_png.png"
+        }
+      ],
+      "team": {
+        "id": "terrorists",
+        "name": "Terroristas"
+      },
+      "market_hash_name": "Bloody Darryl The Strapped | The Professionals",
+      "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/characters/customplayer_tm_professional_varf5_png.png"
+    },
+    {
+      "id": "agent-4619",
+      "name": "\\\"Blueberries\\\" Buckshot | NSWC SEAL",
+      "description": "Conhecido como o \\\"escanção de armas\\\" da SEAL Team 6, Buckshot já testou e analisou de uma forma minuciosa praticamente todas as armas militares à disposição. A ST6 faz bom uso do seu conhecimento sobre armas menos conhecidas para terem uma maior vantagem em operações terrestres.\\n\\nAqui podemos vê-lo com o uniforme clássico NUE Tipo 1, conhecido como \\\"mirtilo\\\". \\n\\n<i>Elas falam comigo. As armas. Elas têm sentimentos.</i>",
+      "rarity": {
+        "id": "rarity_mythical_character",
+        "name": "Excecional",
+        "color": "#8847ff"
+      },
+      "collections": [
+        {
+          "id": "collection-set-op10-characters",
+          "name": "Agentes Broken Fang",
+          "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/set_icons/set_op10_characters_png.png"
+        }
+      ],
+      "team": {
+        "id": "counter-terrorists",
+        "name": "Contraterroristas"
+      },
+      "market_hash_name": "'Blueberries' Buckshot | NSWC SEAL",
+      "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/characters/customplayer_ctm_st6_variantj_png.png"
+    },
+    {
+      "id": "agent-4680",
+      "name": "\\\"Two Times\\\" McCoy | TACP Cavalry",
+      "description": "McCoy ganhou a sua alcunha \\\"Two Times\\\" por ter concluído o treino de campo da TACP duas vezes. Registos oficiais dizem que isto se deveu a um erro de agendamento, mas os colegas de McCoy dizem que tiveram dificuldades em impedir que ele fosse uma terceira vez.\\n\\nCom uma resistência física e mental que não podem ser de um mero humano, McCoy muitas vezes acaba por ser o último de pé no fim de qualquer conflito, seja ele físico ou verbal.\\n\\nO seu lenço amarelo é uma homenagem aos tempos que passou na 1.ª Divisão de Cavalaria.\\n\\n<i>Sim. Ainda 'tou aqui.</i>",
+      "rarity": {
+        "id": "rarity_legendary_character",
+        "name": "Superior",
+        "color": "#d32ce6"
+      },
+      "collections": [
+        {
+          "id": "collection-set-op10-characters",
+          "name": "Agentes Broken Fang",
+          "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/set_icons/set_op10_characters_png.png"
+        }
+      ],
+      "team": {
+        "id": "counter-terrorists",
+        "name": "Contraterroristas"
+      },
+      "market_hash_name": "'Two Times' McCoy | TACP Cavalry",
+      "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/characters/customplayer_ctm_st6_variantl_png.png"
+    },
+    {
+      "id": "agent-4711",
+      "name": "Cmdr. Mae \\\"Dead Cold\\\" Jamison | SWAT",
+      "description": "\\\"Dead Cold\\\", ou Comandante \\\"Sangue-Frio\\\" Jamison como é conhecida, já viu de tudo. Cética e sarcástica mesmo no meio de combates perigosos, outros poderiam olhar para ela e pensar que está indiferente ao caos da situação. E pensariam mal. Nada passa por ela, especialmente mauzões com AK-47s, agentes novatos que lhe chamam \\\"senhora\\\" ou uma oportunidade de fazer agentes de elite sorrir sob pressão.\\n\\n<i>Tu já vais ficar a saber.</i>",
+      "rarity": {
+        "id": "rarity_ancient_character",
+        "name": "Mestre",
+        "color": "#eb4b4b"
+      },
+      "collections": [
+        {
+          "id": "collection-set-op10-characters",
+          "name": "Agentes Broken Fang",
+          "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/set_icons/set_op10_characters_png.png"
+        }
+      ],
+      "team": {
+        "id": "counter-terrorists",
+        "name": "Contraterroristas"
+      },
+      "market_hash_name": "Cmdr. Mae 'Dead Cold' Jamison | SWAT",
+      "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/characters/customplayer_ctm_swat_variante_png.png"
+    },
+    {
+      "id": "agent-4712",
+      "name": "1st Lieutenant Farlow | SWAT",
+      "description": "Extremamente sagaz e sempre com boas maneiras, a Primeiro-Tenente Farlow é uma das agentes mais adoradas e respeitadas da SWAT. Uma estratega excelente em situações de reféns e alvos barricados, Farlow depressa subiu na hierarquia da SWAT. Não te deixes enganar pela sua atitude alegre, pois ela é capaz de limpar o sebo a uns mauzões num piscar de olhos e sem pensar duas vezes.\\n\\n<i>Que é que eles andam ali a fazer? A beber batidos?</i>",
+      "rarity": {
+        "id": "rarity_legendary_character",
+        "name": "Superior",
+        "color": "#d32ce6"
+      },
+      "collections": [
+        {
+          "id": "collection-set-op10-characters",
+          "name": "Agentes Broken Fang",
+          "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/set_icons/set_op10_characters_png.png"
+        }
+      ],
+      "team": {
+        "id": "counter-terrorists",
+        "name": "Contraterroristas"
+      },
+      "market_hash_name": "1st Lieutenant Farlow | SWAT",
+      "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/characters/customplayer_ctm_swat_variantf_png.png"
+    },
+    {
+      "id": "agent-4713",
+      "name": "John \\\"Van Healen\\\" Kask | SWAT",
+      "description": "John \\\"Van Healen\\\" Kask é um dos melhores agentes de defesa tática e paramédicos militares. Também dá uns belos toques na guitarra (às vezes durante uma operação). Ele diz que isso é bom para meter o coração dos colegas aos saltos como um desfibrilador, que ele também tem sempre à mão em caso de emergência. \\n\\n<i>Posso trazer-te de volta à vida, mas não te posso obrigar a vivê-la.</i>",
+      "rarity": {
+        "id": "rarity_mythical_character",
+        "name": "Excecional",
+        "color": "#8847ff"
+      },
+      "collections": [
+        {
+          "id": "collection-set-op10-characters",
+          "name": "Agentes Broken Fang",
+          "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/set_icons/set_op10_characters_png.png"
+        }
+      ],
+      "team": {
+        "id": "counter-terrorists",
+        "name": "Contraterroristas"
+      },
+      "market_hash_name": "John 'Van Healen' Kask | SWAT",
+      "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/characters/customplayer_ctm_swat_variantg_png.png"
+    },
+    {
+      "id": "agent-4714",
+      "name": "Bio-Haz Specialist | SWAT",
+      "description": "Os especialistas em perigo biológico da SWAT são treinados para lidar com os piores casos de guerra biológica. Terroristas que planeiem lançar um ataque biológico contra civis definitivamente não querem lidar com estes tipos.\\n\\n<i>Tacita Sed Mortiferum.</i>",
+      "rarity": {
+        "id": "rarity_rare_character",
+        "name": "Distinto",
+        "color": "#4b69ff"
+      },
+      "collections": [
+        {
+          "id": "collection-set-op10-characters",
+          "name": "Agentes Broken Fang",
+          "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/set_icons/set_op10_characters_png.png"
+        }
+      ],
+      "team": {
+        "id": "counter-terrorists",
+        "name": "Contraterroristas"
+      },
+      "market_hash_name": "Bio-Haz Specialist | SWAT",
+      "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/characters/customplayer_ctm_swat_varianth_png.png"
+    },
+    {
+      "id": "agent-4715",
+      "name": "Sergeant Bombson | SWAT",
+      "description": "Tyler Bobson ganhou a sua alcunha depois de se tornar no especialista em neutralização de materiais explosivos da SWAT. Tendo um dom excecional para encontrar até os explosivos improvisados mais bem escondidos, a audição de Bombson só é ultrapassada pela da nobre traça da colmeia.\\n\\n<i>Sim, eu ouvi isso.</i>",
+      "rarity": {
+        "id": "rarity_mythical_character",
+        "name": "Excecional",
+        "color": "#8847ff"
+      },
+      "collections": [
+        {
+          "id": "collection-set-op10-characters",
+          "name": "Agentes Broken Fang",
+          "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/set_icons/set_op10_characters_png.png"
+        }
+      ],
+      "team": {
+        "id": "counter-terrorists",
+        "name": "Contraterroristas"
+      },
+      "market_hash_name": "Sergeant Bombson | SWAT",
+      "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/characters/customplayer_ctm_swat_varianti_png.png"
+    },
+    {
+      "id": "agent-4716",
+      "name": "Chem-Haz Specialist | SWAT",
+      "description": "Os especialistas em perigo químico da SWAT conseguem sobreviver e vingar em operações com ambientes tóxicos durante horas. Em casos onde outros fogem da zona, eles correm para ela.\\n\\n<i>Lar doce lar.</i>",
+      "rarity": {
+        "id": "rarity_rare_character",
+        "name": "Distinto",
+        "color": "#4b69ff"
+      },
+      "collections": [
+        {
+          "id": "collection-set-op10-characters",
+          "name": "Agentes Broken Fang",
+          "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/set_icons/set_op10_characters_png.png"
+        }
+      ],
+      "team": {
+        "id": "counter-terrorists",
+        "name": "Contraterroristas"
+      },
+      "market_hash_name": "Chem-Haz Specialist | SWAT",
+      "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/characters/customplayer_ctm_swat_variantj_png.png"
+    },
+    {
+      "id": "agent-4718",
+      "name": "Rezan the Redshirt | Sabre",
+      "description": "Rezan não é só um granadeiro experiente e o outrora famoso autor do livro \\\"A Alegria da Preparação\\\", como também é o chefe de operações autointitulado da Sabre. Com o passar dos anos, Rezan aprendeu a controlar o seu temperamento volátil — agora, a cor da sua raiva explosiva pode ser vista nas suas mangas.\\n\\n<i>Eu tenho muito orgulho no que faço.</i>",
+      "rarity": {
+        "id": "rarity_legendary_character",
+        "name": "Superior",
+        "color": "#d32ce6"
+      },
+      "collections": [
+        {
+          "id": "collection-set-op10-characters",
+          "name": "Agentes Broken Fang",
+          "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/set_icons/set_op10_characters_png.png"
+        }
+      ],
+      "team": {
+        "id": "terrorists",
+        "name": "Terroristas"
+      },
+      "market_hash_name": "Rezan the Redshirt | Sabre",
+      "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/characters/customplayer_tm_balkan_variantk_png.png"
+    }
+]

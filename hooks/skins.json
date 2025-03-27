@@ -1,0 +1,66 @@
+{
+    "skins": {
+        "rifles": {
+            "AK-47": [
+                {
+                    "name": "Asiimov",
+                    "wear": "Factory New",
+                    "rarity": "Covert",
+                    "price": 175.50
+                },
+                {
+                    "name": "Wild Lotus",
+                    "wear": "Minimal Wear",
+                    "rarity": "Covert",
+                    "price": 4500.00
+                }
+            ],
+            "M4A4": [
+                {
+                    "name": "Howl",
+                    "wear": "Factory New",
+                    "rarity": "Contraband",
+                    "price": 8000.00
+                }
+            ]
+        },
+        "knives": {
+            "Karambit": [
+                {
+                    "name": "Doppler",
+                    "pattern": "Sapphire",
+                    "wear": "Factory New",
+                    "rarity": "Covert",
+                    "price": 9500.00
+                }
+            ],
+            "Butterfly": [
+                {
+                    "name": "Fade",
+                    "wear": "Factory New",
+                    "fade_percentage": "100%",
+                    "rarity": "Covert",
+                    "price": 4200.00
+                }
+            ]
+        },
+        "pistols": {
+            "Desert Eagle": [
+                {
+                    "name": "Blaze",
+                    "wear": "Factory New",
+                    "rarity": "Classified",
+                    "price": 420.00
+                }
+            ],
+            "USP-S": [
+                {
+                    "name": "Kill Confirmed",
+                    "wear": "Minimal Wear",
+                    "rarity": "Covert",
+                    "price": 180.00
+                }
+            ]
+        }
+    }
+}

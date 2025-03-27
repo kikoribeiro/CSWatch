@@ -24,18 +24,13 @@ const data = {
   projects: [
     {
       name: "Skins",
-      url: "#",
+      url: "/skins",
       icon: "/icons8-ak-47-48.png",
     },
     {
       name: "Agents",
-      url: "#",
+      url: "/agents",
       icon: "/icons8-man-50.png",
-    },
-    {
-      name: "Maps",
-      url: "#",
-      icon: Map,
     },
   ],
 }
