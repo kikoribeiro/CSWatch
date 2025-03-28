@@ -1,66 +1,98 @@
-{
-  "skins": {
-    "rifles": {
-      "AK-47": [
-        {
-          "name": "Asiimov",
-          "wear": "Factory New",
-          "rarity": "Covert",
-          "price": 175.5
-        },
-        {
-          "name": "Wild Lotus",
-          "wear": "Minimal Wear",
-          "rarity": "Covert",
-          "price": 4500.0
-        }
-      ],
-      "M4A4": [
-        {
-          "name": "Howl",
-          "wear": "Factory New",
-          "rarity": "Contraband",
-          "price": 8000.0
-        }
-      ]
+[
+  {
+    "id": "ak47_asiimov",
+    "name": "AK-47 | Asiimov",
+    "description": "Essa skin de AK-47 tem um design futurista com cores branco, preto e laranja.",
+    "category": "Normal",
+    "rarity": {
+      "name": "Covert",
+      "color": "#eb4b4b"
     },
-    "knives": {
-      "Karambit": [
-        {
-          "name": "Doppler",
-          "pattern": "Sapphire",
-          "wear": "Factory New",
-          "rarity": "Covert",
-          "price": 9500.0
-        }
-      ],
-      "Butterfly": [
-        {
-          "name": "Fade",
-          "wear": "Factory New",
-          "fade_percentage": "100%",
-          "rarity": "Covert",
-          "price": 4200.0
-        }
-      ]
+    "price": 35.75,
+    "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_ak47_cu_ak47_asiimov_light_png.png"
+  },
+  {
+    "id": "awp_dragon_lore",
+    "name": "AWP | Dragon Lore",
+    "description": "Essa AWP é uma das skins mais icónicas e caras do jogo, com um dragão dourado.",
+    "category": "Normal",
+    "rarity": {
+      "name": "Covert",
+      "color": "#eb4b4b"
     },
-    "pistols": {
-      "Desert Eagle": [
-        {
-          "name": "Blaze",
-          "wear": "Factory New",
-          "rarity": "Classified",
-          "price": 420.0
-        }
-      ],
-      "USP-S": [
-        {
-          "name": "Kill Confirmed",
-          "wear": "Minimal Wear",
-          "rarity": "Covert",
-          "price": 180.0
-        }
-      ]
-    }
+    "price": 1850.0,
+    "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_awp_cu_medieval_dragon_awp_light_png.png"
+  },
+  {
+    "id": "m4a4_howl",
+    "name": "M4A4 | Howl",
+    "description": "Uma skin rara e contrabandeada, agora com um design de lobo vermelho.",
+    "category": "Normal",
+    "rarity": {
+      "name": "Contraband",
+      "color": "#e4ae39"
+    },
+    "price": 2100.0,
+    "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_m4a1_cu_m4a1_howling_light_png.png"
+  },
+  {
+    "id": "karambit_doppler",
+    "name": "★ Karambit | Doppler",
+    "description": "Uma faca curvada com um padrão de cores que muda sob diferentes ângulos de luz.",
+    "category": "★",
+    "rarity": {
+      "name": "Covert",
+      "color": "#eb4b4b"
+    },
+    "price": 420.5,
+    "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_knife_karambit_am_ruby_marbleized_light_png.png"
+  },
+  {
+    "id": "glock_fade",
+    "name": "Glock-18 | Fade",
+    "description": "Uma pistola com um gradiente de cores do roxo ao amarelo.",
+    "category": "Normal",
+    "rarity": {
+      "name": "Restricted",
+      "color": "#8847ff"
+    },
+    "price": 315.25,
+    "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_glock_aa_fade_light_png.png"
+  },
+  {
+    "id": "butterfly_fade",
+    "name": "★ Butterfly Knife | Fade",
+    "description": "Uma das facas mais populares com animação única e um gradiente de cores vibrantes.",
+    "category": "★",
+    "rarity": {
+      "name": "Covert",
+      "color": "#eb4b4b"
+    },
+    "price": 1050.0,
+    "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_knife_butterfly_aa_fade_light_png.png"
+  },
+  {
+    "id": "usp_kill_confirmed",
+    "name": "USP-S | Kill Confirmed",
+    "description": "Uma pistola decorada com um crânio e o texto 'Kill Confirmed'.",
+    "category": "Normal",
+    "rarity": {
+      "name": "Covert",
+      "color": "#eb4b4b"
+    },
+    "price": 56.8,
+    "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_usp_silencer_cu_usp_kill_confirmed_light_png.png"
+  },
+  {
+    "id": "awp_neo_noir",
+    "name": "AWP | Neo-Noir",
+    "description": "Uma AWP com tema noir em tons de roxo e preto.",
+    "category": "Normal",
+    "rarity": {
+      "name": "Classified",
+      "color": "#d32ce6"
+    },
+    "price": 42.3,
+    "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_awp_cu_awp_neonoir_light_png.png"
   }
-}
+]

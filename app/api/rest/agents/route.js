@@ -4,14 +4,13 @@ import path from 'path';
 
 export async function GET(request) {
   try {
-    // URL parameters support
     const { searchParams } = new URL(request.url);
     const limit = searchParams.get('limit') ? parseInt(searchParams.get('limit')) : undefined;
     const name = searchParams.get('name');
     const rarity = searchParams.get('rarity');
     const team = searchParams.get('team');
 
-    // Read the agents data from the JSON file
+    // Le as informações do arquivo JSON
     const filePath = path.join(process.cwd(), 'hooks', 'agents.json');
     if (!fs.existsSync(filePath)) {
       console.error(`File not found at path: ${filePath}`);
@@ -24,7 +23,6 @@ export async function GET(request) {
     const fileContents = await fs.promises.readFile(filePath, 'utf8');
     let agents = JSON.parse(fileContents);
 
-    // Apply filters if they exist
     if (name) {
       agents = agents.filter((agent) => agent.name.toLowerCase().includes(name.toLowerCase()));
     }
@@ -47,12 +45,10 @@ export async function GET(request) {
       );
     }
 
-    // Apply limit if specified
     if (limit && limit > 0) {
       agents = agents.slice(0, limit);
     }
 
-    // Return the filtered agents
     return NextResponse.json({
       count: agents.length,
       data: agents,

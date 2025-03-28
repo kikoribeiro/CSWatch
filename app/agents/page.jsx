@@ -28,7 +28,6 @@ export default function AgentsPage() {
   const [selectedTeam, setSelectedTeam] = useState('all');
   const [error, setError] = useState(null);
 
-  // Fetch agents from the API
   useEffect(() => {
     async function fetchAgents() {
       try {

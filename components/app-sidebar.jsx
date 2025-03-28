@@ -1,7 +1,6 @@
 'use client';
 
 import * as React from 'react';
-import { Frame, Map, PieChart } from 'lucide-react';
 
 import { NavProjects } from '@/components/nav-projects';
 import { BrandTitle } from '@/components/brand-title';
@@ -14,7 +13,6 @@ import {
   SidebarRail,
 } from '@/components/ui/sidebar';
 
-// This is sample data.
 const data = {
   projects: [
     {
@@ -26,6 +24,11 @@ const data = {
       name: 'Agents',
       url: '/agents',
       icon: '/icons8-man-50.png',
+    },
+    {
+      name: 'Agents(Using SOAP)',
+      url: '/agentsSOAP',
+      icon: '/icons8-map-50.png',
     },
   ],
 };
@@ -42,7 +45,7 @@ export function AppSidebar({ ...props }) {
       <SidebarRail />
       <SidebarFooter>
         <div>
-          <a href="#">View all</a>
+          <a href="#">bnlaala</a>
         </div>
       </SidebarFooter>
     </Sidebar>

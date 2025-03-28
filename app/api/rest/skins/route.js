@@ -4,7 +4,6 @@ import path from 'path';
 
 export async function GET(request) {
   try {
-    // URL parameters support
     const { searchParams } = new URL(request.url);
     const limit = searchParams.get('limit') ? parseInt(searchParams.get('limit')) : undefined;
     const name = searchParams.get('name');
@@ -16,14 +15,43 @@ export async function GET(request) {
       ? parseFloat(searchParams.get('maxPrice'))
       : undefined;
 
-    // Read the skins data from the JSON file
+    // Le as informações do arquivo JSON
     const filePath = path.join(process.cwd(), 'hooks', 'skins.json');
-    const fileContents = await fs.promises.readFile(filePath, 'utf8');
-    let skins = JSON.parse(fileContents);
 
-    // Apply filters if they exist
+    // Verifica se o arquivo existe
+    if (!fs.existsSync(filePath)) {
+      console.error(`File not found at path: ${filePath}`);
+      return NextResponse.json(
+        { error: 'Skins data file not found', path: filePath },
+        { status: 404 }
+      );
+    }
+
+    const fileContents = await fs.promises.readFile(filePath, 'utf8');
+    let skins;
+
+    try {
+      skins = JSON.parse(fileContents);
+      // Verifica se os dados são um array
+      if (!Array.isArray(skins)) {
+        console.error('Skins data is not an array');
+        return NextResponse.json(
+          { error: 'Invalid skins data format', details: 'Data is not an array' },
+          { status: 500 }
+        );
+      }
+    } catch (parseError) {
+      console.error('Error parsing JSON:', parseError);
+      return NextResponse.json(
+        { error: 'Invalid JSON in skins data file', details: parseError.message },
+        { status: 500 }
+      );
+    }
+
     if (name) {
-      skins = skins.filter((skin) => skin.name.toLowerCase().includes(name.toLowerCase()));
+      skins = skins.filter(
+        (skin) => skin.name && skin.name.toLowerCase().includes(name.toLowerCase())
+      );
     }
 
     if (rarity) {
@@ -34,14 +62,13 @@ export async function GET(request) {
     }
 
     if (minPrice !== undefined) {
-      skins = skins.filter((skin) => skin.price >= minPrice);
+      skins = skins.filter((skin) => skin.price && skin.price >= minPrice);
     }
 
     if (maxPrice !== undefined) {
-      skins = skins.filter((skin) => skin.price <= maxPrice);
+      skins = skins.filter((skin) => skin.price && skin.price <= maxPrice);
     }
 
-    // Apply limit if specified
     if (limit && limit > 0) {
       skins = skins.slice(0, limit);
     }
@@ -59,7 +86,6 @@ export async function GET(request) {
   }
 }
 
-// Get a single skin by ID
 export async function POST(request) {
   try {
     const body = await request.json();
@@ -69,12 +95,12 @@ export async function POST(request) {
       return NextResponse.json({ error: 'Skin ID is required' }, { status: 400 });
     }
 
-    // Read the skins data
+    // Le as skins do arquivo JSON
     const filePath = path.join(process.cwd(), 'hooks', 'skins.json');
     const fileContents = await fs.promises.readFile(filePath, 'utf8');
     const skins = JSON.parse(fileContents);
 
-    // Find the skin with the matching ID
+    // Encontra a skin pelo ID
     const skin = skins.find((skin) => skin.id === id);
 
     if (!skin) {
