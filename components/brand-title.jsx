@@ -1,9 +1,8 @@
 'use client';
 
-import { GalleryVerticalEnd } from 'lucide-react';
-
 import { SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export function BrandTitle() {
   return (
@@ -18,6 +17,7 @@ export function BrandTitle() {
               alt="cs logo"
               className="size-4"
             />
+            <Link href="/" className="absolute inset-0" aria-label="CS WATCH" />
           </div>
           <div className="grid flex-1 text-left text-sm leading-tight">
             <span className="truncate font-semibold">CS WATCH</span>

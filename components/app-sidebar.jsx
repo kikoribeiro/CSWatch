@@ -28,7 +28,7 @@ const data = {
     {
       name: 'Agents(Using SOAP)',
       url: '/agentsSOAP',
-      icon: '/icons8-map-50.png',
+      icon: '/icons8-man-50.png',
     },
   ],
 };
@@ -43,11 +43,7 @@ export function AppSidebar({ ...props }) {
         <NavProjects projects={data.projects} />
       </SidebarContent>
       <SidebarRail />
-      <SidebarFooter>
-        <div>
-          <a href="#">bnlaala</a>
-        </div>
-      </SidebarFooter>
+      <SidebarFooter></SidebarFooter>
     </Sidebar>
   );
 }
