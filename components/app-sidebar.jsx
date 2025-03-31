@@ -1,8 +1,8 @@
 'use client';
 
 import * as React from 'react';
-
-import { NavProjects } from '@/components/nav-projects';
+import { ShoppingCart, User } from 'lucide-react';
+import { NavItems } from '@/components/nav-items';
 import { BrandTitle } from '@/components/brand-title';
 
 import {
@@ -15,7 +15,7 @@ import {
 import { ModeToggle } from './ui/toggle-mode';
 
 const data = {
-  projects: [
+  items: [
     {
       name: 'Skins',
       url: '/skins',
@@ -24,12 +24,17 @@ const data = {
     {
       name: 'Agents',
       url: '/agents',
-      icon: '/icons8-man-50.png',
+      icon: User,
     },
     {
       name: 'Agents(Using SOAP)',
       url: '/agentsSOAP',
-      icon: '/icons8-man-50.png',
+      icon: User,
+    },
+    {
+      name: 'Market',
+      url: '/market',
+      icon: ShoppingCart,
     },
   ],
 };
@@ -41,7 +46,7 @@ export function AppSidebar({ ...props }) {
         <BrandTitle />
       </SidebarHeader>
       <SidebarContent>
-        <NavProjects projects={data.projects} />
+        <NavItems items={data.items} />
       </SidebarContent>
       <SidebarRail />
       <SidebarFooter>
