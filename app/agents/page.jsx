@@ -5,9 +5,7 @@ import Image from 'next/image';
 import { Search } from 'lucide-react';
 import { AppSidebar } from '@/components/app-sidebar';
 
-// Import UI components from your components folder
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 import {
   Select,
   SelectContent,
@@ -34,18 +32,19 @@ export default function AgentsPage() {
         setLoading(true);
         let apiUrl = '/api/rest/agents';
 
+        //Construção da query com base nos filtros
         const params = new URLSearchParams();
         if (searchTerm) params.append('name', searchTerm);
         if (selectedRarity && selectedRarity !== 'all') params.append('rarity', selectedRarity);
         if (selectedTeam && selectedTeam !== 'all') params.append('team', selectedTeam);
 
+        // Adiciona os parâmetros à URL
         const queryString = params.toString();
         if (queryString) {
           apiUrl += `?${queryString}`;
         }
 
-        console.log('Fetching agents from:', apiUrl); // Debug line
-
+        // aqui ele faz a chamada à API
         const response = await fetch(apiUrl);
 
         if (!response.ok) {
@@ -97,10 +96,8 @@ export default function AgentsPage() {
     <main className="flex-1 overflow-auto p-6">
       <div className="container mx-auto max-w-7xl">
         <h1 className="text-3xl font-bold mb-6">CS2 Agents</h1>
-
         <Separator className="my-4" />
-
-        {/* Filters section */}
+        //secção de filtros
         <div className="grid gap-4 md:grid-cols-[1fr_auto_auto] mb-6">
           <div className="relative">
             <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
@@ -138,8 +135,7 @@ export default function AgentsPage() {
             </SelectContent>
           </Select>
         </div>
-
-        {/* Loading state */}
+        //secção de loading
         {loading && (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {Array.from({ length: 8 }).map((_, index) => (
@@ -156,24 +152,13 @@ export default function AgentsPage() {
             ))}
           </div>
         )}
-
-        {/* Error message */}
-        {error && !loading && (
-          <Card className="bg-destructive/10 border-destructive">
-            <CardContent className="p-4">
-              <p className="text-destructive font-medium">{error}</p>
-            </CardContent>
-          </Card>
-        )}
-
-        {/* No results */}
+        //sem resultados
         {!loading && !error && agents.length === 0 && (
           <div className="text-center py-10">
             <p className="text-muted-foreground text-lg">Nenhum agente encontrado</p>
           </div>
         )}
-
-        {/* Agents grid */}
+        //secção de agentes
         {!loading && !error && agents.length > 0 && (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {agents.map((agent) => (

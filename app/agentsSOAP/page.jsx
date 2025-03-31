@@ -3,9 +3,7 @@
 import { useState, useEffect } from 'react';
 import { Search } from 'lucide-react';
 import Image from 'next/image';
-import { AppSidebar } from '@/components/app-sidebar';
 
-// Importação de componentes da UI
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
@@ -83,7 +81,7 @@ export default function AgentsSOAPPage() {
         const xmlText = await response.text();
         console.log('Resposta SOAP recebida:', xmlText); // Debug
 
-        // Fazer o parsing da resposta XML
+        // Fazer o parsing da resposta XML ( ou seja, transformar o XML em um objeto JS )
         const parser = new DOMParser();
         const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
 
@@ -122,7 +120,7 @@ export default function AgentsSOAPPage() {
             null
           ).singleNodeValue;
 
-          // Extrair informações de equipa
+          // Extrair informações da equipa
           const teamNode = xmlDoc.evaluate(
             'tns:team',
             agentNode,
@@ -181,10 +179,8 @@ export default function AgentsSOAPPage() {
     <main className="flex-1 overflow-auto p-6">
       <div className="container mx-auto max-w-7xl">
         <h1 className="text-3xl font-bold mb-6">CS2 Agents (SOAP API)</h1>
-
         <Separator className="my-4" />
-
-        {/* Filtros */}
+        // Secção de filtros
         <div className="grid gap-4 md:grid-cols-[1fr_auto_auto] mb-6">
           <div className="relative">
             <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
@@ -222,8 +218,7 @@ export default function AgentsSOAPPage() {
             </SelectContent>
           </Select>
         </div>
-
-        {/* Estado de carregamento - mostra esqueletos enquanto os dados carregam */}
+        // Secção de loading
         {loading && (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {Array.from({ length: 8 }).map((_, index) => (
@@ -240,15 +235,12 @@ export default function AgentsSOAPPage() {
             ))}
           </div>
         )}
-
-        {/* Mensagem quando não há resultados */}
         {!loading && !error && agents.length === 0 && (
           <div className="text-center py-10">
             <p className="text-muted-foreground text-lg">Nenhum agente encontrado</p>
           </div>
         )}
-
-        {/* Grelha de agentes - mostra os resultados quando disponíveis */}
+        //secção de agentes
         {!loading && !error && agents.length > 0 && (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {agents.map((agent) => (

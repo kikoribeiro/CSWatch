@@ -3,9 +3,7 @@
 import { useState, useEffect } from 'react';
 import { Search } from 'lucide-react';
 import Image from 'next/image';
-import { AppSidebar } from '@/components/app-sidebar';
 
-// Importação de componentes da UI
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
@@ -92,17 +90,13 @@ export default function SkinsPage() {
           throw new Error('Invalid data format received from API');
         }
       } catch (err) {
-        // Tratamento de erros
         console.error('Error fetching skins:', err);
         setError(err.message);
         setSkins([]);
       } finally {
-        // Independentemente do resultado, finaliza o estado de carregamento
         setLoading(false);
       }
     }
-
-    // Executa a função de carregamento de dados
     fetchSkins();
   }, [searchQuery, selectedRarity, selectedCategory]); // Dependências que acionam o recarregamento
 
@@ -126,12 +120,9 @@ export default function SkinsPage() {
     <main className="flex-1 overflow-auto p-6">
       <div className="container mx-auto max-w-7xl">
         <h1 className="text-3xl font-bold mb-6">CS2 Skins</h1>
-
         <Separator className="my-4" />
-
-        {/* Secção de filtros */}
+        // Secção de filtros
         <div className="grid gap-4 md:grid-cols-[1fr_auto_auto] mb-6">
-          {/* Campo de pesquisa */}
           <div className="relative">
             <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
             <Input
@@ -142,7 +133,6 @@ export default function SkinsPage() {
             />
           </div>
 
-          {/* Dropdown para filtrar por raridade */}
           <Select value={selectedRarity} onValueChange={handleRarityChange}>
             <SelectTrigger className="w-full md:w-[180px]">
               <SelectValue placeholder="Raridade" />
@@ -156,7 +146,6 @@ export default function SkinsPage() {
             </SelectContent>
           </Select>
 
-          {/* Dropdown para filtrar por categoria */}
           <Select value={selectedCategory} onValueChange={handleCategoryChange}>
             <SelectTrigger className="w-full md:w-[180px]">
               <SelectValue placeholder="Categoria" />
@@ -170,8 +159,7 @@ export default function SkinsPage() {
             </SelectContent>
           </Select>
         </div>
-
-        {/* Estado de carregamento - mostra esqueletos enquanto os dados carregam */}
+        // Secção de loading
         {loading && (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {Array.from({ length: 12 }).map((_, index) => (
@@ -188,8 +176,7 @@ export default function SkinsPage() {
             ))}
           </div>
         )}
-
-        {/* Grelha de skins - mostra os resultados quando disponíveis */}
+        // Secção de skins
         {!loading && !error && filteredSkins.length > 0 && (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {filteredSkins.map((skin, index) => (
@@ -239,8 +226,6 @@ export default function SkinsPage() {
             ))}
           </div>
         )}
-
-        {/* Mensagem quando não há resultados */}
         {filteredSkins.length === 0 && !loading && !error && (
           <div className="text-center py-10">
             <p className="text-muted-foreground text-lg">
