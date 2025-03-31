@@ -12,6 +12,7 @@ import {
   SidebarHeader,
   SidebarRail,
 } from '@/components/ui/sidebar';
+import { ModeToggle } from './ui/toggle-mode';
 
 const data = {
   projects: [
@@ -43,7 +44,9 @@ export function AppSidebar({ ...props }) {
         <NavProjects projects={data.projects} />
       </SidebarContent>
       <SidebarRail />
-      <SidebarFooter></SidebarFooter>
+      <SidebarFooter>
+        <ModeToggle />
+      </SidebarFooter>
     </Sidebar>
   );
 }
