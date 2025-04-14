@@ -1,0 +1,41 @@
+
+syntax = "proto3";
+
+package skins;
+
+service SkinsPrice {
+  // Stream de atualizações de preços
+  rpc SubscribeToPriceUpdates (PriceSubscriptionRequest) returns (stream PriceUpdate);
+  
+  // Obter histórico de preços
+  rpc GetPriceHistory (PriceHistoryRequest) returns (PriceHistoryResponse);
+}
+
+message PriceSubscriptionRequest {
+  repeated string skin_ids = 1; // IDs das skins para monitorar
+}
+
+message PriceUpdate {
+  string skin_id = 1;
+  string skin_name = 2;
+  double price = 3;
+  string timestamp = 4;
+  double change_percentage = 5; // Mudança percentual desde a última atualização
+}
+
+message PriceHistoryRequest {
+  string skin_id = 1;
+  string time_range = 2; // "day", "week", "month", "year"
+}
+
+message PricePoint {
+  double price = 1;
+  string timestamp = 2;
+}
+
+message PriceHistoryResponse {
+  string skin_id = 1;
+  string skin_name = 2;
+  repeated PricePoint price_points = 3;
+}
+  
