@@ -121,7 +121,7 @@ export default function SkinsPage() {
       <div className="container mx-auto max-w-7xl">
         <h1 className="text-3xl font-bold mb-6">CS2 Skins</h1>
         <Separator className="my-4" />
-        // Secção de filtros
+        {/*Secção de filtros */}
         <div className="grid gap-4 md:grid-cols-[1fr_auto_auto] mb-6">
           <div className="relative">
             <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
@@ -159,7 +159,7 @@ export default function SkinsPage() {
             </SelectContent>
           </Select>
         </div>
-        // Secção de loading
+        {/* Secção de loading */}
         {loading && (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {Array.from({ length: 12 }).map((_, index) => (
@@ -176,7 +176,7 @@ export default function SkinsPage() {
             ))}
           </div>
         )}
-        // Secção de skins
+        {/* Secção de skins */}
         {!loading && !error && filteredSkins.length > 0 && (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {filteredSkins.map((skin, index) => (

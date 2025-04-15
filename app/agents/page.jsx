@@ -32,7 +32,7 @@ export default function AgentsPage() {
         setLoading(true);
         let apiUrl = '/api/rest/agents';
 
-        //Construção da query com base nos filtros
+        // Construção da query com base nos filtros
         const params = new URLSearchParams();
         if (searchTerm) params.append('name', searchTerm);
         if (selectedRarity && selectedRarity !== 'all') params.append('rarity', selectedRarity);
@@ -97,7 +97,7 @@ export default function AgentsPage() {
       <div className="container mx-auto max-w-7xl">
         <h1 className="text-3xl font-bold mb-6">CS2 Agents</h1>
         <Separator className="my-4" />
-        //secção de filtros
+        {/* secção de filtros */}
         <div className="grid gap-4 md:grid-cols-[1fr_auto_auto] mb-6">
           <div className="relative">
             <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
@@ -135,7 +135,7 @@ export default function AgentsPage() {
             </SelectContent>
           </Select>
         </div>
-        //secção de loading
+        {/* secção de loading */}
         {loading && (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {Array.from({ length: 8 }).map((_, index) => (
@@ -152,13 +152,13 @@ export default function AgentsPage() {
             ))}
           </div>
         )}
-        //sem resultados
+        {/* sem resultados */}
         {!loading && !error && agents.length === 0 && (
           <div className="text-center py-10">
             <p className="text-muted-foreground text-lg">Nenhum agente encontrado</p>
           </div>
         )}
-        //secção de agentes
+        {/* secção de agentes */}
         {!loading && !error && agents.length > 0 && (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {agents.map((agent) => (
