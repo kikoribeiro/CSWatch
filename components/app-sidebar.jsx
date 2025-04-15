@@ -32,6 +32,11 @@ const data = {
       icon: User,
     },
     {
+      name: ' Skins(Using GRAPHQL)',
+      url: '/skinsQL',
+      icon: '/icons8-ak-47-48.png',
+    },
+    {
       name: 'Market',
       url: '/market',
       icon: ShoppingCart,

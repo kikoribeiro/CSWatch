@@ -76,7 +76,7 @@ const packageDefinition = protoLoader.loadSync(PROTO_PATH, {
 const protoDescriptor = grpc.loadPackageDefinition(packageDefinition);
 const skinsPriceService = protoDescriptor.skins;
 
-// Simular preços de skins (em produção, isto viria de uma base de dados)
+// Simular preços de skins
 const skinsPriceData = {
   ak47_asiimov: {
     id: 'ak47_asiimov',
@@ -305,8 +305,7 @@ export async function POST(request) {
     const data = await request.json();
     const { method, params } = data;
 
-    // Esta é uma simulação simples para testes via HTTP
-    // Em produção, você usaria um cliente gRPC adequado
+   
 
     if (method === 'GetPriceHistory') {
       const { skin_id, time_range } = params;

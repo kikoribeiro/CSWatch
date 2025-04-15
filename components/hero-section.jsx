@@ -25,8 +25,7 @@ export default function HeroSection() {
           <span className="block mt-2">THE ICONIC TACTICAL SHOOTER</span>
         </h1>
         <p className="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto mb-8">
-          Experience the feeling of all your skins and agents in one place. CS WATCH is a
-          comprehensive platform that provides you with all the information you need about CS.
+          Aqui na CS WATCH você pode encontrar tudo sobre CS2, desde skins até agentes.
         </p>
       </div>
 

@@ -5,26 +5,18 @@ export default function FeaturesSection() {
     {
       icon: <Target className="h-10 w-10 text-orange-500" />,
       title: 'REST API',
-      description:
-        'Access a comprehensive REST API for real-time data on skins, agents, and more.',
     },
     {
       icon: <Users className="h-10 w-10 text-orange-500" />,
       title: 'SOAP API',
-      description:
-        'Leverage SOAP for secure and reliable data exchange with our platform.',
     },
     {
       icon: <Shield className="h-10 w-10 text-orange-500" />,
       title: 'GraphQL API',
-      description:
-        'Experience the power of GraphQL for flexible and efficient data retrieval.',
     },
     {
       icon: <Zap className="h-10 w-10 text-orange-500" />,
       title: 'gRPC API',
-      description:
-        'Utilize gRPC for high-performance communication between services.',
     },
   ];
 
@@ -33,13 +25,13 @@ export default function FeaturesSection() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            What Makes CS WATCH Unique?
+            O que torna CS WATCH único?
           </h2>
           <p className="text-gray-400 max-w-3xl mx-auto">
-            CS WATCH is not just a game; it's a community. Join millions of players worldwide and
-            experience the thrill of tactical gameplay, teamwork, and strategy. Whether you're a
-            casual player or a competitive gamer, CS WATCH has something for everyone.
-            With 4 primary tecnologies, you can experience the game like never before.
+            CS Watch contém uma interface intuitiva e fácil de usar, permitindo que todos os
+            jogadores tenham informações sobre skins, agentes e muito mais. A nossa plataforma é
+            construída com as mais recentes tecnologias, garantindo desempenho e segurança. Além
+            disso, oferecemos uma variedade de APIs para atender às suas necessidades específicas.
           </p>
         </div>
 
