@@ -1,6 +1,30 @@
 import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
+import { v4 as uuidv4 } from 'uuid';
+
+// Função utilitária para ler o arquivo de skins
+async function readSkinsFile() {
+  const filePath = path.join(process.cwd(), 'hooks', 'skins.json');
+  
+  if (!fs.existsSync(filePath)) {
+    throw new Error(`File not found at path: ${filePath}`);
+  }
+  
+  const fileContents = await fs.promises.readFile(filePath, 'utf8');
+  const skins = JSON.parse(fileContents);
+  
+  if (!Array.isArray(skins)) {
+    throw new Error('Skins data is not an array');
+  }
+  
+  return { skins, filePath };
+}
+
+// Função utilitária para escrever no arquivo de skins
+async function writeSkinsFile(skins, filePath) {
+  await fs.promises.writeFile(filePath, JSON.stringify(skins, null, 2), 'utf8');
+}
 
 export async function GET(request) {
   try {
@@ -16,37 +40,7 @@ export async function GET(request) {
       : undefined;
 
     // Le as informações do arquivo JSON
-    const filePath = path.join(process.cwd(), 'hooks', 'skins.json');
-
-    // Verifica se o arquivo existe
-    if (!fs.existsSync(filePath)) {
-      console.error(`File not found at path: ${filePath}`);
-      return NextResponse.json(
-        { error: 'Skins data file not found', path: filePath },
-        { status: 404 }
-      );
-    }
-
-    const fileContents = await fs.promises.readFile(filePath, 'utf8');
-    let skins;
-
-    try {
-      skins = JSON.parse(fileContents);
-      // Verifica se os dados são um array
-      if (!Array.isArray(skins)) {
-        console.error('Skins data is not an array');
-        return NextResponse.json(
-          { error: 'Invalid skins data format', details: 'Data is not an array' },
-          { status: 500 }
-        );
-      }
-    } catch (parseError) {
-      console.error('Error parsing JSON:', parseError);
-      return NextResponse.json(
-        { error: 'Invalid JSON in skins data file', details: parseError.message },
-        { status: 500 }
-      );
-    }
+    const { skins } = await readSkinsFile();
 
     if (name) {
       skins = skins.filter(
@@ -88,30 +82,46 @@ export async function GET(request) {
 
 export async function POST(request) {
   try {
-    const body = await request.json();
-    const { id } = body;
-
-    if (!id) {
-      return NextResponse.json({ error: 'Skin ID is required' }, { status: 400 });
+    const data = await request.json();
+    
+    // Validar dados obrigatórios
+    if (!data.name) {
+      return NextResponse.json(
+        { error: 'Name is a required field' },
+        { status: 400 }
+      );
     }
-
-    // Le as skins do arquivo JSON
-    const filePath = path.join(process.cwd(), 'hooks', 'skins.json');
-    const fileContents = await fs.promises.readFile(filePath, 'utf8');
-    const skins = JSON.parse(fileContents);
-
-    // Encontra a skin pelo ID
-    const skin = skins.find((skin) => skin.id === id);
-
-    if (!skin) {
-      return NextResponse.json({ error: 'Skin not found' }, { status: 404 });
-    }
-
-    return NextResponse.json(skin);
+    
+    // Ler o arquivo atual de skins
+    const { skins, filePath } = await readSkinsFile();
+    
+    // Criar nova skin com ID único
+    const newSkin = {
+      id: data.id || uuidv4(), // Usar o ID fornecido ou gerar um novo
+      name: data.name,
+      description: data.description || '',
+      image: data.image || '',
+      price: parseFloat(data.price) || 0,
+      category: data.category || 'Normal',
+      rarity: data.rarity || {
+        id: 'Restricted',
+        name: 'Restricted',
+        color: '#0073ff'
+      },
+      createdAt: new Date().toISOString()
+    };
+    
+    // Adicionar a nova skin à lista
+    skins.push(newSkin);
+    
+    // Salvar a lista atualizada no arquivo
+    await writeSkinsFile(skins, filePath);
+    
+    return NextResponse.json(newSkin, { status: 201 });
   } catch (error) {
-    console.error('Error fetching skin:', error);
+    console.error('Error creating skin:', error);
     return NextResponse.json(
-      { error: 'Failed to fetch skin', details: error.message },
+      { error: 'Failed to create skin', details: error.message },
       { status: 500 }
     );
   }

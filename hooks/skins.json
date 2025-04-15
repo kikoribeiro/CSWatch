@@ -20,7 +20,7 @@
       "name": "Covert",
       "color": "#eb4b4b"
     },
-    "price": 1850.0,
+    "price": 1850,
     "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_awp_cu_medieval_dragon_awp_light_png.png"
   },
   {
@@ -32,7 +32,7 @@
       "name": "Contraband",
       "color": "#e4ae39"
     },
-    "price": 2100.0,
+    "price": 2100,
     "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_m4a1_cu_m4a1_howling_light_png.png"
   },
   {
@@ -68,7 +68,7 @@
       "name": "Covert",
       "color": "#eb4b4b"
     },
-    "price": 1050.0,
+    "price": 1050,
     "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_knife_butterfly_aa_fade_light_png.png"
   },
   {
