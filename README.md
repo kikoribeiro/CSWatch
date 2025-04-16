@@ -3,8 +3,10 @@
 Repositório do trabalho de Integração de Sistemas
 
 Este trabalho é inspirado no jogo Counter Strike, em que vai ser possivel analisar skins, maps, agents! Também vai ser possível submeter sugestões de skins ou mapas que gostariam de ser feitos!
+## Site alojado na Vercel
+- https://cs-watch.vercel.app/
 
-## POSTAMAN TESTES
+## POSTMAN TESTES
 
 GET Skins json
 ![image](https://github.com/user-attachments/assets/74bb5031-6536-41e7-95ea-b71f81ca6f3a)
@@ -15,8 +17,9 @@ Get Agents JSON
 Get Market gRPC
 ![image](https://github.com/user-attachments/assets/a59b8fd4-90fd-4d4d-b4a2-9173bedcca17)
 
-## Tecnologia
-s utilizadas
+## Video de demonstração da aplicação
+
+## Tecnologias utilizadas
 
 - SOAP
 - REST
