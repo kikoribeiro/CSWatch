@@ -8,8 +8,11 @@ Este trabalho é inspirado no jogo Counter Strike, em que vai ser possivel anali
 
 ## POSTMAN TESTES
 
-GET Skins json
+GET Skins JSON
 ![image](https://github.com/user-attachments/assets/74bb5031-6536-41e7-95ea-b71f81ca6f3a)
+
+POST Skins JSON
+![image](https://github.com/user-attachments/assets/ba691cbe-d19f-4150-bf71-81b1a35d229b)
 
 Get Agents JSON
 ![image](https://github.com/user-attachments/assets/74518dd4-f3b9-41c2-88ae-4f1b87e04477)
