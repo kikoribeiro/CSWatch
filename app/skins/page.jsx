@@ -394,18 +394,81 @@ export default function SkinsPage() {
     }
   };
 
+  // Adicione esta função dentro do seu componente SkinsPage,
+  // antes do return statement
+  const handleExportJSON = () => {
+    try {
+      // Verifica se há skins para exportar
+      if (!filteredSkins || filteredSkins.length === 0) {
+        toast.error('Não há skins para exportar');
+        return;
+      }
+
+      // Prepara os dados para exportação
+      const dataToExport = JSON.stringify(filteredSkins, null, 2);
+
+      // Cria um blob e um link para download
+      const blob = new Blob([dataToExport], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+
+      // Cria um link de download temporário
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `cswatch-skins-export-${new Date().toISOString().slice(0, 10)}.json`;
+
+      // Adiciona o link ao documento, clica nele e remove-o
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      // Limpa o URL object
+      URL.revokeObjectURL(url);
+
+      toast.success('JSON exportado com sucesso!', {
+        description: `${filteredSkins.length} skins foram exportadas.`,
+      });
+    } catch (error) {
+      console.error('Erro ao exportar JSON:', error);
+      toast.error('Erro ao exportar JSON', {
+        description: error.message,
+      });
+    }
+  };
+
   return (
     <>
       <main className="flex-1 overflow-auto p-6">
         <div className="container mx-auto max-w-7xl">
           <div className="flex justify-between items-center mb-6">
             <h1 className="text-3xl font-bold">CS2 Skins</h1>
-            <Button
-              onClick={openCreateModal}
-              className="bg-green-500 hover:bg-green-600 text-white"
-            >
-              <Plus className="mr-1 h-5 w-5" /> Adicionar Skin
-            </Button>
+            <div className="flex space-x-2">
+              <Button
+                onClick={handleExportJSON}
+                className="bg-blue-500 hover:bg-blue-600 text-white"
+              >
+                <svg 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  className="h-5 w-5 mr-1" 
+                  fill="none" 
+                  viewBox="0 0 24 24" 
+                  stroke="currentColor" 
+                  strokeWidth={2}
+                >
+                  <path 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" 
+                  />
+                </svg>
+                Exportar JSON
+              </Button>
+              <Button
+                onClick={openCreateModal}
+                className="bg-green-500 hover:bg-green-600 text-white"
+              >
+                <Plus className="mr-1 h-5 w-5" /> Adicionar Skin
+              </Button>
+            </div>
           </div>
           <Separator className="my-4" />
           {/*Secção de filtros */}
