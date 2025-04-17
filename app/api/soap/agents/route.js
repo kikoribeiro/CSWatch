@@ -24,7 +24,7 @@ export async function POST(request) {
     const rarity = getElementValue(xmlDoc, 'rarity');
     const team = getElementValue(xmlDoc, 'team');
 
-    // Leitura de arquivo JSON dos agentes (como já existe na sua API REST)
+    // Leitura de arquivo JSON dos agentes
     const filePath = path.join(process.cwd(), 'hooks', 'agents.json');
 
     if (!fs.existsSync(filePath)) {
