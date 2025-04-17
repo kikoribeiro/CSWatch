@@ -7,6 +7,9 @@ Este trabalho é inspirado no jogo Counter Strike, em que vai ser possivel anali
 ## Site alojado na Vercel
 - https://cs-watch.vercel.app/
 
+## Comando para correr o docker
+- docker run -p 3000:3000 -v ~/cs-watch-data:/app/hooks cs-watch
+
 ## Estrutura das pastas e do projeto
 ### Cliente 
 - app/skins
@@ -112,16 +115,18 @@ Todos os route.js que fazem a ligação entre o JSON e as Páginas Cliente
 ![image](https://github.com/user-attachments/assets/4cbbf3f5-c2f3-4be0-9d73-c14dd4d4cbc6)
 
 ## Video de demonstração da aplicação
+- https://www.youtube.com/watch?v=L1OChWGE-Rw
 
 ## Tecnologias utilizadas
 
+- Apollo Client
+- Next.js
 - SOAP
 - REST
 - GraphQL
 - gRPC
 
 ###
-
 
 <div align="center">
   <img height="150" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdjI4NWptdHFyNXluOHZxeTFleGN0eTlvMml2NXNxb2trNGgyZjQwdiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/cruO3FTeoAxjiTVxPW/giphy.gif"  />
