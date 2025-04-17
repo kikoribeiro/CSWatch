@@ -42,7 +42,7 @@ Todos os route.js que fazem a ligação entre o JSON e as Páginas Cliente
 #
 
 ### POST Skins JSON
-```http
+```
   POST /api/rest/skins
 ```
 
