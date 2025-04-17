@@ -33,7 +33,7 @@ Todos os route.js que fazem a ligação entre o JSON e as Páginas Cliente
 ## POSTMAN TESTES
 
 ### GET Skins JSON
-```http
+```
   GET /api/rest/skins
 ```
 #### Retorna todos os itens
@@ -62,7 +62,7 @@ Todos os route.js que fazem a ligação entre o JSON e as Páginas Cliente
 #
 
 ### GET Agents JSON
-```http
+```
   GET /api/rest/agents
 ```
 #### Retorna todos os itens
@@ -71,7 +71,7 @@ Todos os route.js que fazem a ligação entre o JSON e as Páginas Cliente
 #
 
 ### GET Skins GraphQL
-```http
+```
   GET /api/graphql?query={skins{ id name price }}
 ```
 #### Retorna todos os itens com id name e price
@@ -80,7 +80,7 @@ Todos os route.js que fazem a ligação entre o JSON e as Páginas Cliente
 #
 
 ### POST Skins GraphQL
-```http
+```
   POST /api/graphql
 ```
 | Parâmetro   | Tipo       | Descrição                                   |
@@ -94,7 +94,7 @@ Todos os route.js que fazem a ligação entre o JSON e as Páginas Cliente
 #
 
 ### GET Market gRPC
-```http
+```
   GET /api/grpc
 ```
 
@@ -103,7 +103,7 @@ Todos os route.js que fazem a ligação entre o JSON e as Páginas Cliente
 #
 
 ### POST Market gRPC
-```http
+```
   POST /api/grpc
 ```
 | Parâmetro   | Tipo       | Descrição                                   |
