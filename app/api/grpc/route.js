@@ -5,6 +5,58 @@ import fs from 'fs';
 import * as grpc from '@grpc/grpc-js';
 import * as protoLoader from '@grpc/proto-loader';
 
+// Função para ler o arquivo de skins.json
+async function readSkinsFile() {
+  const filePath = path.join(process.cwd(), 'hooks', 'skins.json');
+
+  if (!fs.existsSync(filePath)) {
+    throw new Error(`File not found at path: ${filePath}`);
+  }
+
+  const fileContents = await fs.promises.readFile(filePath, 'utf8');
+  const skins = JSON.parse(fileContents);
+
+  if (!Array.isArray(skins)) {
+    throw new Error('Skins data is not an array');
+  }
+
+  return skins;
+}
+
+// Função para converter dados do skins.json para o formato usado pelo gRPC
+async function loadRealSkinData() {
+  try {
+    const skins = await readSkinsFile();
+    const skinsPriceData = {};
+
+    skins.forEach((skin) => {
+      skinsPriceData[skin.id] = {
+        id: skin.id,
+        name: skin.name,
+        currentPrice: skin.price,
+        history: generateRandomPriceHistory(skin.price, 30), // historico de preços aleatório
+        description: skin.description,
+        category: skin.category,
+        rarity: skin.rarity,
+        image: skin.image,
+      };
+    });
+
+    return skinsPriceData;
+  } catch (error) {
+    console.error('Erro ao carregar dados reais de skins:', error);
+    // Fallback para dados simulados em caso de erro
+    return {
+      ak47_asiimov: {
+        id: 'ak47_asiimov',
+        name: 'AK-47 | Asiimov',
+        currentPrice: 35.75,
+        history: generateRandomPriceHistory(35.75, 30),
+      },
+    };
+  }
+}
+
 // Configuração para o servidor HTTP e gRPC
 const server = createServer();
 const grpcServer = new grpc.Server();
@@ -76,41 +128,7 @@ const packageDefinition = protoLoader.loadSync(PROTO_PATH, {
 const protoDescriptor = grpc.loadPackageDefinition(packageDefinition);
 const skinsPriceService = protoDescriptor.skins;
 
-// Simular preços de skins
-const skinsPriceData = {
-  ak47_asiimov: {
-    id: 'ak47_asiimov',
-    name: 'AK-47 | Asiimov',
-    currentPrice: 35.75,
-    history: generateRandomPriceHistory(35.75, 30),
-  },
-  awp_dragon_lore: {
-    id: 'awp_dragon_lore',
-    name: 'AWP | Dragon Lore',
-    currentPrice: 1850.0,
-    history: generateRandomPriceHistory(1850.0, 30),
-  },
-  m4a4_howl: {
-    id: 'm4a4_howl',
-    name: 'M4A4 | Howl',
-    currentPrice: 2100.0,
-    history: generateRandomPriceHistory(2100.0, 30),
-  },
-  karambit_doppler: {
-    id: 'karambit_doppler',
-    name: '★ Karambit | Doppler',
-    currentPrice: 420.5,
-    history: generateRandomPriceHistory(420.5, 30),
-  },
-  butterfly_fade: {
-    id: 'butterfly_fade',
-    name: '★ Butterfly Knife | Fade',
-    currentPrice: 1050.0,
-    history: generateRandomPriceHistory(1050.0, 30),
-  },
-};
-
-// Função para gerar histórico de preços fictício
+// Função para gerar histórico de preços aleatórios
 function generateRandomPriceHistory(basePrice, days) {
   const history = [];
   const now = new Date();
@@ -132,6 +150,9 @@ function generateRandomPriceHistory(basePrice, days) {
   // Ordenar por data (mais antiga para mais recente)
   return history.reverse();
 }
+
+// Variável para armazenar os dados de skins
+let skinsPriceData = {};
 
 // Implementar o serviço gRPC
 const SkinsPrice = {
@@ -175,7 +196,7 @@ const SkinsPrice = {
           : Object.values(skinsPriceData);
 
       skinsToUpdate.forEach((skinData) => {
-        // Simular mudança de preço - valores um pouco maiores para compensar o intervalo maior
+        // Simular mudança de preço
         const previousPrice = skinData.currentPrice;
         const changePercentage = (Math.random() * 4 - 2) * 0.01; // -2% a +2%
         skinData.currentPrice = previousPrice * (1 + changePercentage);
@@ -225,7 +246,7 @@ const SkinsPrice = {
     }
 
     // Determinar quantos dias retornar com base no time_range
-    let daysToReturn = 7; // Padrão: semana
+    let daysToReturn = 7; 
 
     switch (time_range) {
       case 'day':
@@ -259,23 +280,41 @@ grpcServer.addService(skinsPriceService.SkinsPrice.service, SkinsPrice);
 // Porta para o gRPC server
 const GRPC_PORT = process.env.GRPC_PORT || 50051;
 
-// Iniciar o servidor gRPC
-grpcServer.bindAsync(
-  `0.0.0.0:${GRPC_PORT}`,
-  grpc.ServerCredentials.createInsecure(),
-  (err, port) => {
-    if (err) {
-      console.error('Falha ao iniciar servidor gRPC:', err);
-      return;
-    }
-    console.log(`Servidor gRPC rodando na porta ${port}`);
-    grpcServer.start();
+// Inicializar os dados e iniciar o servidor
+async function initializeAndStartServer() {
+  try {
+    // Carregar dados reais do arquivo skins.json
+    skinsPriceData = await loadRealSkinData();
+
+    // Iniciar o servidor gRPC
+    grpcServer.bindAsync(
+      `0.0.0.0:${GRPC_PORT}`,
+      grpc.ServerCredentials.createInsecure(),
+      (err, port) => {
+        if (err) {
+          console.error('Falha ao iniciar servidor gRPC:', err);
+          return;
+        }
+        console.log(`Servidor gRPC rodando na porta ${port}`);
+        grpcServer.start();
+      }
+    );
+  } catch (error) {
+    console.error('Erro ao inicializar servidor:', error);
   }
-);
+}
+
+// Iniciar o servidor
+initializeAndStartServer();
 
 // Tratamento para a API Next.js
 export async function GET(request) {
   try {
+    // Recarregar os dados a cada requisição para garantir que estejam atualizados
+    if (Object.keys(skinsPriceData).length === 0) {
+      skinsPriceData = await loadRealSkinData();
+    }
+
     return NextResponse.json({
       status: 'gRPC server running',
       port: GRPC_PORT,
@@ -302,10 +341,13 @@ export async function GET(request) {
 
 export async function POST(request) {
   try {
+    // Recarregar os dados a cada requisição para garantir que estejam atualizados
+    if (Object.keys(skinsPriceData).length === 0) {
+      skinsPriceData = await loadRealSkinData();
+    }
+
     const data = await request.json();
     const { method, params } = data;
-
-   
 
     if (method === 'GetPriceHistory') {
       const { skin_id, time_range } = params;
@@ -316,7 +358,7 @@ export async function POST(request) {
       }
 
       // Determinar quantos dias retornar
-      let daysToReturn = 7; // Default: week
+      let daysToReturn = 7; 
 
       switch (time_range) {
         case 'day':
@@ -348,4 +390,18 @@ export async function POST(request) {
     console.error('Erro na API gRPC (POST):', error);
     return NextResponse.json({ error: 'Erro interno do servidor' }, { status: 500 });
   }
+}
+
+// GraphQL endpoint
+export async function graphqlEndpoint(request) {
+  const query = request.query.query;
+  if (query === '{skins{ id name price }}') {
+    const skins = Object.values(skinsPriceData).map((skin) => ({
+      id: skin.id,
+      name: skin.name,
+      price: skin.currentPrice,
+    }));
+    return NextResponse.json({ data: { skins } });
+  }
+  return NextResponse.json({ error: 'Invalid query' }, { status: 400 });
 }
